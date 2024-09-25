@@ -7,7 +7,7 @@ namespace Backend02
     {
         static void Main(string[] args)
         {
-            var xml = XDocument.Load("people.xml");
+            //var xml = XDocument.Load("people.xml");
             //foreach (var item in
             //    xml.Element("people")!.Elements("person"))
             //{
@@ -19,19 +19,20 @@ namespace Backend02
             //        where int.Parse(item.Element("age")!.Value) > 27
             //        select item.Element("name")!.Value;
 
-            var jsondata = File.ReadAllText("people.json");
-            var people = JsonConvert
-                .DeserializeObject<List<Person>>(jsondata);
+            //var jsondata = File.ReadAllText("people.json");
+            //var people = JsonConvert
+            //    .DeserializeObject<List<Person>>(jsondata);
             
             //linq: 27 évnél idősebbek közül életkor alapján
             //csökkenő sorrendben az első 3 személy neve
 
-            var q = people?.Where(t => t.Age > 27)
-                .OrderByDescending(t => t.Age)
-                .Take(3)
-                .Select(t => t.Name);
+            //var q = people?.Where(t => t.Age > 27)
+            //    .OrderByDescending(t => t.Age)
+            //    .Take(3)
+            //    .Select(t => t.Name);
 
-            
+            //adatbázis kezelés
+
 
         }
     }
