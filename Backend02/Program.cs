@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using Newtonsoft.Json;
+using System.Xml.Linq;
 
 namespace Backend02
 {
@@ -18,7 +19,11 @@ namespace Backend02
             //        where int.Parse(item.Element("age")!.Value) > 27
             //        select item.Element("name")!.Value;
 
-            
+            var jsondata = File.ReadAllText("people.json");
+            var people = JsonConvert
+                .DeserializeObject<List<Person>>(jsondata);
+
+
         }
     }
 }
