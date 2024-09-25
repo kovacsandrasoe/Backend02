@@ -22,7 +22,16 @@ namespace Backend02
             var jsondata = File.ReadAllText("people.json");
             var people = JsonConvert
                 .DeserializeObject<List<Person>>(jsondata);
+            
+            //linq: 27 évnél idősebbek közül életkor alapján
+            //csökkenő sorrendben az első 3 személy neve
 
+            var q = people?.Where(t => t.Age > 27)
+                .OrderByDescending(t => t.Age)
+                .Take(3)
+                .Select(t => t.Name);
+
+            
 
         }
     }
