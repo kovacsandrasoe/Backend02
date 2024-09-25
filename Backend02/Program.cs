@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using Backend02.Models;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.Xml.Linq;
 
 namespace Backend02
@@ -22,7 +24,7 @@ namespace Backend02
             //var jsondata = File.ReadAllText("people.json");
             //var people = JsonConvert
             //    .DeserializeObject<List<Person>>(jsondata);
-            
+
             //linq: 27 évnél idősebbek közül életkor alapján
             //csökkenő sorrendben az első 3 személy neve
 
@@ -33,7 +35,24 @@ namespace Backend02
 
             //adatbázis kezelés
 
+            var ctx = new SalesDbContext();
 
+            //összes vásárló keresztneve
+            var q = ctx.Customers.Select(t => t.FirstName);
+
+            //összes vásárló
+            var q2 = ctx.Customers;
+
+            ctx.Customers.Add(new Customer
+            {
+                FirstName = "Jack",
+                LastName = "Neumann",
+                Email = "jack@oe.hu"
+            });
+
+            ctx.SaveChanges();
+
+            
         }
     }
 }
