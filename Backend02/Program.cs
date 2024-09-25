@@ -14,9 +14,9 @@ namespace Backend02
             //}
 
             //linq: 27 évnél idősebbek nevei
-            var q = from item in xml.Element("people")!.Elements("person")
-                    where int.Parse(item.Element("age")!.Value) > 27
-                    select item.Element("name")!.Value;
+            //var q = from item in xml.Element("people")!.Elements("person")
+            //        where int.Parse(item.Element("age")!.Value) > 27
+            //        select item.Element("name")!.Value;
 
             
         }
